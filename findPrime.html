@@ -1,41 +1,67 @@
-<script>
-    //自己改table的border成css格式
-    function findPrime(){
-        const ROW = 10;  
-        const COL = 10;
-        let r;
-        let num = [];
-
-        for(let k = 0;k < COL;k++){    
-            document.write("<tr>");
-            for(let j = 1;j <= ROW ;j++){
-                document.write("<td bgcolor='pink'>");
-                r = k*10 + j;
-                document.write(`${r} <br>`);
-
-                for(let m = 2 ; m<r ; m++){
-                    document.write(parseInt(r%m) + "<br>");
-                    if(r%m == 0){
-                        document.write("OK"+ "<br>");
-                        num.push(r);
-                        break;
-                    }         
-                }
-            }
-            document.write("</td>");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>找質數</title>
+    <style>
+        td {
+            font-size: 30px;
+            color: #5B00AE;
         }
-        document.write("</tr>");    
-        
+    </style>
+</head>
+<body>
+    <script>
+        let num = [];
+        num.push(2);
+        //自己改table的border成css格式
+        function findPrime(){
+            const ROW = 10;  
+            const COL = 10;
+            let r;        
+            for(let k = 0;k < COL;k++){    
+                document.write("<tr>");
+                for(let j = 1;j <= ROW ;j++){
+                    document.write("<td bgcolor='pink'>");
+                    r = k*10 + j;
+                    document.write(`${r} <br>`);
 
-    }
-</script>
-<table border="1" width="100%">  
-        <script>
-            findPrime();
-        </script>            
-        <script>
-            for(let g in num){    //用這種迴圈方式，會跳過中間沒定義的數字!!好用
-                document.write(num[g] + "<br>");
+                    let isPrime = false;
+                    for(let m = 2 ; m<r ; m++){                    
+                        document.write(parseInt(r%m) + "<br>");
+                        if(r%m == 0){
+                            document.write("Not Prime."+ "<br>"); 
+                            isPrime = false                       
+                            break;
+                        }else{
+                            isPrime = true;                        
+                        }         
+                    }
+                    if(isPrime){
+                        num.push(r);
+                    }
+                }
+                document.write("</td>");
             }
-        </script>
-</table>
+            document.write("</tr>");    
+            
+
+        }
+    </script>
+    <table style="border:8px #FFD382 groove;" cellpadding="10" border='1' width="100%">  
+            <script>
+                findPrime();
+            </script>            
+            <script>
+                document.write("100內的質數有：　");
+                for(let g in num){    //用這種迴圈方式，會跳過中間沒定義的數字!!好用
+                    document.write(num[g] + "　　");
+                }
+            </script>
+    </table>    
+</body>
+</html>
+
+
