@@ -1,0 +1,41 @@
+<script>
+    //自己改table的border成css格式
+    function findPrime(){
+        const ROW = 10;  
+        const COL = 10;
+        let r;
+        let num = [];
+
+        for(let k = 0;k < COL;k++){    
+            document.write("<tr>");
+            for(let j = 1;j <= ROW ;j++){
+                document.write("<td bgcolor='pink'>");
+                r = k*10 + j;
+                document.write(`${r} <br>`);
+
+                for(let m = 2 ; m<r ; m++){
+                    document.write(parseInt(r%m) + "<br>");
+                    if(r%m == 0){
+                        document.write("OK"+ "<br>");
+                        num.push(r);
+                        break;
+                    }         
+                }
+            }
+            document.write("</td>");
+        }
+        document.write("</tr>");    
+        
+
+    }
+</script>
+<table border="1" width="100%">  
+        <script>
+            findPrime();
+        </script>            
+        <script>
+            for(let g in num){    //用這種迴圈方式，會跳過中間沒定義的數字!!好用
+                document.write(num[g] + "<br>");
+            }
+        </script>
+</table>
