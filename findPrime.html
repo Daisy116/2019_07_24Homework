@@ -9,59 +9,66 @@
         td {
             font-size: 30px;
             color: #5B00AE;
+            background-color: bisque;
+            text-align: center;
+        }
+        lable {
+            background-color: blueviolet;
+            width: 200px ;
+            height: 200px ;
         }
     </style>
 </head>
 <body>
     <script>
-        let num = [];
-        num.push(2);
-        //自己改table的border成css格式
+        let num = [];       //用來存放質數的陣列
+        num.push(r);
         function findPrime(){
             const ROW = 10;  
-            const COL = 10;
-            let r;        
-            for(let k = 0;k < COL;k++){    
+            const COL = 20;     //改COL可以到200,300...ect
+            let thisnum;        //ROW x COL表格內一格的數字
+            
+            for(let k = 0 ; k < COL ; k++){    
                 document.write("<tr>");
-                for(let j = 1;j <= ROW ;j++){
-                    document.write("<td bgcolor='pink'>");
-                    r = k*10 + j;
-                    document.write(`${r} <br>`);
-
+                for(let j = 1 ; j <= ROW ; j++){
                     let isPrime = false;
-                    for(let m = 2 ; m<r ; m++){                    
-                        document.write(parseInt(r%m) + "<br>");
-                        if(r%m == 0){
-                            document.write("Not Prime."+ "<br>"); 
+                    thisnum = k*10 + j;         //計算該格的數字
+
+                    document.write("<td />");                   
+                    document.write(`${thisnum} <br>`);
+                    
+                    if(thisnum == 2){
+                        isPrime = true;
+                    }
+
+                    for(let m = 2 ; m < thisnum ; m++){                    
+                        if(thisnum % m == 0){        //能被其他數整除，所以Not Prime
+                            // document.write("X"); 
                             isPrime = false                       
                             break;
-                        }else{
-                            isPrime = true;                        
+                        }else{               
+                            isPrime = true;  //是質數                   
                         }         
                     }
                     if(isPrime){
-                        num.push(r);
+                        num.push(thisnum);
+                        document.write("<lable>✓</label>"); 
                     }
                 }
-                document.write("</td>");
             }
-            document.write("</tr>");    
-            
-
+            document.write("</tr>"); 
         }
     </script>
+
+
     <table style="border:8px #FFD382 groove;" cellpadding="10" border='1' width="100%">  
-            <script>
-                findPrime();
-            </script>            
-            <script>
-                document.write("100內的質數有：　");
-                for(let g in num){    //用這種迴圈方式，會跳過中間沒定義的數字!!好用
-                    document.write(num[g] + "　　");
-                }
-            </script>
+    這個表的質數有：          
+    <script> 
+        findPrime();       
+        for(let g in num){    //用這種迴圈方式，會跳過中間沒定義的index
+            document.write(num[g] + "&nbsp" + "&nbsp" + "&nbsp");  //"&nbsp"是空一格的意思
+        }
+    </script>
     </table>    
 </body>
 </html>
-
-

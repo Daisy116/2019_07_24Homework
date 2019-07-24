@@ -1,0 +1,52 @@
+<!-- 這個檔案用來測試用，不是作業 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .try4 {
+            background-color:#FF0000; 
+        }
+        .ex1 {
+            background-color:pink; 
+        }
+    </style>
+</head>
+<body>
+    <table border=1 class="try">
+        <tr class="try4">
+        <td class="try2">第 1 列、第 1 行</td>
+        <td class="try3">第 1 列、第 2 行</td>
+        <td>第 1 列、第 3 行</td>
+        </tr>
+        <tr>
+        <td>第 2 列、第 1 行</td>
+        <td>第 2 列、第 2 行</td>
+        <td>第 2 列、第 3 行</td>
+        </tr>
+    </table>
+
+
+    <script>
+        document.write("<table border=1>");
+
+        for (x=1 ; x<5 ; x++){
+            document.write("<tr>");
+            for (y=1 ; y<6 ; y++){        
+                if(x == 1 && y == 4){
+                    document.write("<td class='ex1'>(" + x + "," +y +")</td>");
+                }else{
+                    document.write("<td>(" + x + "," +y +")</td>");
+                }
+            }
+            document.write("</tr>");
+        }
+
+        document.write("</table>");
+    </script>
+</body>
+</html>
