@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>身份證字號產生器</title>
+    <script type="text/javascript" src="TWID.js"></script>
+</head>
+<body>
+    請選擇性別： 
+    <select id="gender">
+        <option>---</option>
+        <option>男</option>
+        <option>女</option>
+    </select>
+    <br>
+    <br>請選擇縣市： 
+    <form name="form1" id="form1" >
+        <input type="radio" name="city" value="A">臺北市
+        <input type="radio" name="city" value="B">臺中市
+        <input type="radio" name="city" value="C">基隆市<br />
+        <input type="radio" name="city" value="D">臺南市
+        <input type="radio" name="city" value="E">高雄市
+        <input type="radio" name="city" value="F">新北市<br />
+        <input type="radio" name="city" value="G">宜蘭縣
+        <input type="radio" name="city" value="H">桃園市
+        <input type="radio" name="city" value="I">嘉義市<br />
+        <input type="radio" name="city" value="J">新竹縣
+        <input type="radio" name="city" value="K">苗栗縣
+        <input type="radio" name="city" value="M">南投縣<br />
+        <input type="radio" name="city" value="N">彰化縣
+        <input type="radio" name="city" value="O">新竹市
+        <input type="radio" name="city" value="P">雲林縣<br />
+        <input type="radio" name="city" value="Q">嘉義縣
+        <input type="radio" name="city" value="T">屏東縣
+        <input type="radio" name="city" value="U">花蓮縣<br />
+        <input type="radio" name="city" value="V">臺東縣
+        <input type="radio" name="city" value="W">金門縣
+        <input type="radio" name="city" value="X">澎湖縣
+        <input type="radio" name="city" value="Z">連江縣<br />
+        <hr>
+        <input type="radio" name="city" value="L">臺中縣
+        <input type="radio" name="city" value="R">臺南縣<br />
+        <input type="radio" name="city" value="S">高雄縣
+        <input type="radio" name="city" value="Y">陽明山管理局
+    </form>
+
+    <input type="button" value="id產生器" onclick="createTWIDByAll()">
+    <span id="result"></span>      
+</body>
+</html>
+
